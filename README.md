@@ -452,17 +452,6 @@ Cambiar a `Debug` para más verbosidad en desarrollo:
 
 ---
 
-## 🤝 Contribuciones
-
-Para contribuir:
-
-1. Crear una rama feature: `git checkout -b feature/nueva-funcionalidad`
-2. Hacer cambios y commit: `git commit -m "Descripción clara del cambio"`
-3. Push a la rama: `git push origin feature/nueva-funcionalidad`
-4. Abrir Pull Request
-
----
-
 ## 📄 Licencia
 
 Este proyecto está bajo licencia propietaria. Contactar al propietario para más información.
@@ -472,7 +461,7 @@ Este proyecto está bajo licencia propietaria. Contactar al propietario para má
 ## 📞 Soporte
 
 Para reportar problemas o solicitar información:
-- **Email**: [contacto@empresa.com]
+- **Email**: info@greenpc.dev
 - **Documentación**: Ver archivo `Explicacion_Proyecto.md`
 - **Problemas**: Registrar en el repositorio/ticketing system
 
