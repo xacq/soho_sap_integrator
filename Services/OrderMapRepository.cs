@@ -31,6 +31,18 @@ public sealed record BeginResult(
 public sealed record PreValidationResult(bool Ok, string Message);
 
 /// <summary>
+/// Representa el estado actual de una orden en la tabla de idempotencia.
+/// </summary>
+public sealed record OrderStatusResult(
+    bool Found,
+    string? Status,
+    int? SapDocEntry,
+    int? SapDocNum,
+    string? ErrorMessage,
+    DateTime? UpdatedAt
+);
+
+/// <summary>
 /// Repositorio que gestiona la tabla 'Z_SOHO_OrderMap' para la idempotencia y el seguimiento de pedidos.
 /// Esta clase es fundamental para evitar la duplicacin de pedidos en SAP.
 /// </summary>
@@ -201,6 +213,36 @@ WHERE ZohoOrderId=@zoho AND InstanceId=@inst;
         cmd.Parameters.AddWithValue("@inst", instanceId);
 
         await cmd.ExecuteNonQueryAsync(ct);
+    }
+
+    /// <summary>
+    /// Consulta el estado de una orden por ZohoOrderId + InstanceId.
+    /// </summary>
+    public async Task<OrderStatusResult> GetStatusAsync(string zohoOrderId, string instanceId, CancellationToken ct)
+    {
+        await using var conn = CreateConn();
+        await conn.OpenAsync(ct);
+
+        var cmd = new SqlCommand(@"
+SELECT TOP 1 Status, SapDocEntry, SapDocNum, ErrorMessage, UpdatedAt
+FROM dbo.Z_SOHO_OrderMap
+WHERE ZohoOrderId=@zoho AND InstanceId=@inst;
+", conn);
+
+        cmd.Parameters.AddWithValue("@zoho", zohoOrderId);
+        cmd.Parameters.AddWithValue("@inst", instanceId);
+
+        await using var r = await cmd.ExecuteReaderAsync(ct);
+        if (!await r.ReadAsync(ct))
+            return new OrderStatusResult(false, null, null, null, null, null);
+
+        var status = r["Status"] as string;
+        var sapDocEntry = r["SapDocEntry"] == DBNull.Value ? null : (int?)Convert.ToInt32(r["SapDocEntry"]);
+        var sapDocNum = r["SapDocNum"] == DBNull.Value ? null : (int?)Convert.ToInt32(r["SapDocNum"]);
+        var errorMessage = r["ErrorMessage"] == DBNull.Value ? null : r["ErrorMessage"] as string;
+        var updatedAt = r["UpdatedAt"] == DBNull.Value ? null : (DateTime?)Convert.ToDateTime(r["UpdatedAt"]);
+
+        return new OrderStatusResult(true, status, sapDocEntry, sapDocNum, errorMessage, updatedAt);
     }
 
     // --- SECCIN: Pre-validacin de Datos ---
