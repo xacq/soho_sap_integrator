@@ -6,3 +6,4 @@ C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrato
 C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.sourcelink.json
