@@ -252,6 +252,48 @@ app.MapPost("/orders", async (
 .WithName("CreateSalesOrder") // Nombre para la generacin de OpenAPI.
 .WithOpenApi();
 
+// Endpoint de consulta de estado para observabilidad funcional.
+// Permite consultar el estado por zohoOrderId + instanceId.
+app.MapGet("/orders/{zohoOrderId}/{instanceId}/status", async (
+    string zohoOrderId,
+    string instanceId,
+    OrderMapRepository repo,
+    CancellationToken ct) =>
+{
+    var zoho = zohoOrderId?.Trim();
+    var inst = instanceId?.Trim();
+
+    if (string.IsNullOrWhiteSpace(zoho) || string.IsNullOrWhiteSpace(inst))
+        return Results.BadRequest(new { ok = false, code = "BAD_REQUEST", message = "zohoOrderId e instanceId son requeridos." });
+
+    var status = await repo.GetStatusAsync(zoho, inst, ct);
+    if (!status.Found)
+    {
+        return Results.NotFound(new
+        {
+            ok = false,
+            code = "NOT_FOUND",
+            zohoOrderId = zoho,
+            instanceId = inst,
+            message = "No existe registro para la combinacin zohoOrderId + instanceId."
+        });
+    }
+
+    return Results.Ok(new
+    {
+        ok = true,
+        code = "STATUS",
+        zohoOrderId = zoho,
+        instanceId = inst,
+        status = status.Status,
+        sap = new { docEntry = status.SapDocEntry, docNum = status.SapDocNum },
+        errorMessage = status.ErrorMessage,
+        updatedAt = status.UpdatedAt
+    });
+})
+.WithName("GetOrderStatus")
+.WithOpenApi();
+
 // Inicia la aplicacin y la mantiene escuchando solicitudes.
 app.Run();
 
