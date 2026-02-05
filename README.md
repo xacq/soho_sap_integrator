@@ -2,6 +2,26 @@
 
 API integradora para recibir pedidos desde Soho/Zoho y crearlos en SAP Business One de manera segura, trazable e idempotente.
 
+## Punto de entrada (entry point)
+
+El punto de entrada de la aplicación es **`Program.cs`**.
+
+Desde ese archivo se inicializa todo el host de ASP.NET Core:
+- configuración (`builder.Configuration`),
+- inyección de dependencias (`builder.Services`),
+- middlewares (`app.Use...`),
+- y definición de endpoints (`app.MapPost`, `app.MapGet`).
+
+Para ejecutar localmente:
+
+```bash
+dotnet run --project SohoSapIntegrator.csproj
+```
+
+Una vez levantada, la API expone principalmente:
+- `POST /orders`
+- `GET /orders/{zohoOrderId}/{instanceId}/status`
+
 ## Estado del sistema (actual)
 
 ### ✅ Implementado
