@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SohoSapIntegrator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30afef9d8410b2569a21016339b72d8c802544f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SohoSapIntegrator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SohoSapIntegrator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
