@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SohoSapIntegrator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57ad6fb9024f3388850e1cea81b2b83977729610")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+669300e367296c14d817aaf42a56114063643430")]
 [assembly: System.Reflection.AssemblyProductAttribute("SohoSapIntegrator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SohoSapIntegrator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
