@@ -1,3 +1,4 @@
+
 # Análisis técnico del repositorio `SohoSapIntegrator` (actualizado)
 
 ## 1) Veredicto general
