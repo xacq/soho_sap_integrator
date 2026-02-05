@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- Define las propiedades principales del proyecto. -->
+    
+    <!-- TargetFramework: Especifica la versin de .NET a la que apunta el proyecto. En este caso, .NET 8. -->
+    <TargetFramework>net8.0</TargetFramework>
+    
+    <!-- Nullable: Habilita el anlisis de tipos de referencia anulables para ayudar a prevenir excepciones de referencia nula. -->
+    <Nullable>enable</Nullable>
+    
+    <!-- ImplicitUsings: Permite al compilador aadir automticamente directivas 'using' globales para namespaces comunes del SDK. -->
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Contiene las referencias a los paquetes NuGet que utiliza el proyecto. -->
+
+    <!-- Microsoft.AspNetCore.OpenApi: Proporciona herramientas para generar documentacin de API de OpenAPI (Swagger) para Minimal APIs. -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.23" />
+    
+    <!-- Microsoft.Data.SqlClient: Es el proveedor de datos de .NET para SQL Server. Se usa en OrderMapRepository para conectar a la base de datos. -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.4" />
+    
+    <!-- Swashbuckle.AspNetCore: Es el conjunto de herramientas que genera la interfaz de usuario de Swagger, permitiendo explorar y probar la API fcilmente. -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    
+    <!-- NOTA: La referencia a SAPbobsCOM (la DI API de SAP) no est aqu.
+         Esto es comn, ya que a menudo se aade como una referencia COM directa al proyecto
+         y no como un paquete NuGet. Se puede ver en el explorador de soluciones de Visual Studio. -->
+  </ItemGroup>
+
+</Project>

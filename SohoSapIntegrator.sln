@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SohoSapIntegrator", "SohoSapIntegrator.csproj", "{DA642616-9EA0-46F8-8308-AE10605BC685}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA642616-9EA0-46F8-8308-AE10605BC685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA642616-9EA0-46F8-8308-AE10605BC685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA642616-9EA0-46F8-8308-AE10605BC685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA642616-9EA0-46F8-8308-AE10605BC685}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7B09E1F-1890-47DA-AA69-A762E6D09719}
+	EndGlobalSection
+EndGlobal

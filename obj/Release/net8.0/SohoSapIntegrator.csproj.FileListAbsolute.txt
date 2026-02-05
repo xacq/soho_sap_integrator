@@ -1,0 +1,8 @@
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\rpswa.dswa.cache.json
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ASUS\source\repos\SohoSapIntegrator\obj\Release\net8.0\SohoSapIntegrator.MvcApplicationPartsAssemblyInfo.cache
