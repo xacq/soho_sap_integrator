@@ -112,3 +112,28 @@ Se espera una tabla con una estructura similar a esta en una base de datos SQL S
 - `ProcessingAt` (datetime): Marca de tiempo de cuándo se empezó a procesar.
 - `CreatedAt` (datetime): Marca de tiempo de cuándo se creó el registro.
 - `UpdatedAt` (datetime): Marca de tiempo de la última actualización.
+
+## 4. Endpoint de Observabilidad de Estado
+
+Además del flujo de creación (`POST /orders`), el sistema expone un endpoint de consulta de estado:
+
+- **GET** `/orders/{zohoOrderId}/{instanceId}/status`
+
+### Respuestas esperadas
+- **200 OK**: Cuando existe registro en `Z_SOHO_OrderMap` para la llave `zohoOrderId + instanceId`.
+  - Incluye: `status`, `sap.docEntry`, `sap.docNum`, `errorMessage`, `updatedAt`.
+- **404 Not Found**: Cuando no existe registro para la combinación solicitada.
+- **400 Bad Request**: Cuando faltan parámetros o llegan vacíos.
+
+Este endpoint permite trazabilidad operativa sin consultar directamente la base de datos.
+
+## 5. Estado actual del alcance (implementado vs pendiente)
+
+### Implementado
+- Recepción y procesamiento de pedidos con idempotencia.
+- Persistencia del estado en `Z_SOHO_OrderMap` (`PROCESSING`, `CREATED`, `FAILED`).
+- Consulta de estado por `zohoOrderId + instanceId`.
+
+### Pendiente
+- Notificación saliente desacoplada (callback/outbox) hacia un endpoint externo de cierre de pedido.
+- Hardening operativo adicional (reconciliación SAP/SQL, control de `PROCESSING` stale y validación más estricta de payload).
