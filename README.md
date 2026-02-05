@@ -476,5 +476,5 @@ Para reportar problemas o solicitar información:
 
 ---
 
-**Última actualización**: Febrero 2024  
-**Versión**: 1.0.0
+**Última actualización**: Enero 2026  
+**Versión**: 1.1.1
